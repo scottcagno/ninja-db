@@ -6,7 +6,11 @@ package com.cagnosolutions.ninja.db;
  */
 
 public class Main {
+
 	public static void main(String[] args) {
+
 		System.out.printf("Hello, from NinjaDB\n");
+
 	}
+
 }
