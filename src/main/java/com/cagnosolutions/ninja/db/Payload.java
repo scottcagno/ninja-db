@@ -1,16 +1,17 @@
 package com.cagnosolutions.ninja.db;
 
+import java.util.Map;
+
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-public class Main {
+public class Payload {
 
-	public static void main(String[] args) {
-
-		System.out.printf("Hello, from NinjaDB\n");
-
-	}
+	String store;
+	String method;
+	int status;
+	Map data;
 
 }
