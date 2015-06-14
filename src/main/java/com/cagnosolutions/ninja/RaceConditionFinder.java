@@ -1,7 +1,5 @@
 package com.cagnosolutions.ninja;
 
-import com.cagnosolutions.ninja.dm.DiskBackedMap;
-
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -16,7 +14,7 @@ public class RaceConditionFinder {
 	private Executor e = Executors.newFixedThreadPool(2);
 	private final Map map;
 
-	public RaceConditionFinder(final DiskBackedMap<Integer, String> map) {
+	public RaceConditionFinder(final Map<Integer, String> map) {
 		this.map = map;
 		init();
 	}

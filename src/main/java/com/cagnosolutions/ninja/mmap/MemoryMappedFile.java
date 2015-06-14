@@ -1,6 +1,9 @@
 package com.cagnosolutions.ninja.mmap;
 
+import com.cagnosolutions.ninja.db.DataStore;
+
 import java.io.*;
+import java.util.Map;
 
 /**
  * Created by Scott Cagno.
@@ -19,13 +22,13 @@ public class MemoryMappedFile {
 		this.path = path;
 	}
 
-	public void write(Document document) throws IOException {
+	public void write(Map<String, DataStore> dataStore) throws IOException {
 		ObjectOutputStream objectOutputStream = null;
 		try {
 			RandomAccessFile randomAccessFile = new RandomAccessFile(path, "rw");
 			FileOutputStream fileOutputStream = new FileOutputStream(randomAccessFile.getFD());
 			objectOutputStream = new ObjectOutputStream(fileOutputStream);
-			objectOutputStream.writeObject(document);
+			objectOutputStream.writeObject(dataStore);
 		} finally {
 			if (objectOutputStream != null) {
 				objectOutputStream.close();
@@ -33,13 +36,13 @@ public class MemoryMappedFile {
 		}
 	}
 
-	public Document read(String fileName) throws IOException, ClassNotFoundException {
+	public Map<String, DataStore> read(String fileName) throws IOException, ClassNotFoundException {
 		ObjectInputStream objectInputStream = null;
 		try {
 			RandomAccessFile randomAccessFile = new RandomAccessFile(fileName, "r");
 			FileInputStream fileInputStream = new FileInputStream(randomAccessFile.getFD());
 			objectInputStream = new ObjectInputStream(fileInputStream);
-			return (Document) objectInputStream.readObject();
+			return (Map<String, DataStore>) objectInputStream.readObject();
 		} finally {
 			if (objectInputStream != null) {
 				objectInputStream.close();

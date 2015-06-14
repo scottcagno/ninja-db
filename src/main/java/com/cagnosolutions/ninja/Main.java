@@ -1,7 +1,9 @@
 package com.cagnosolutions.ninja;
 
-import com.cagnosolutions.ninja.mmap.Document;
-import com.cagnosolutions.ninja.mmap.MemoryMappedFile;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Scott Cagno.
@@ -12,31 +14,26 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 
-		//DiskBackedMap<Integer,String> dm = new DiskBackedMap<>("/tmp/dm");
-		//new RaceConditionFinder(dm);
-		//System.out.println(dm.get(12345));
+		final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+		AtomicInteger count = new AtomicInteger(1);
 
-		//final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+
 		//service.scheduleWithFixedDelay(() -> System.out.println(new Date()), 0, 1, TimeUnit.SECONDS);
+		service.scheduleAtFixedRate(new Runnable() {
+			public void run() {
+				int n = count.addAndGet(1);
+				boolean ok = ((n*2)%10 == 0) ? true : false;
+				//System.out.printf("[%d*2=%d, mod of %d is %d] outcome is: %b\n", n, n*2, n*2, ((n*2)%10), ok);
+				if(ok)
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						System.err.println("DANG: something bad happened...");
+					}
+			}
+		}, 0, 5, TimeUnit.SECONDS);
 
-		/*Map<String,Object> data = new HashMap<>();
-		data.put("foo", true);
-		data.put("bar", false);
-		data.put("done", "Yes we sure are");
-		data.put("nested", new Document(new HashMap<String,Object>(){{
-			put("one", 1);
-			put("two", 2);
-			put("three", 3);
-			put("alive", true);
-		}}));
 
-		Document document = new Document(data);*/
-
-		MemoryMappedFile mmap = new MemoryMappedFile("/tmp/fd123");
-		//mmap.write(document);
-
-		Document doc = mmap.read("/tmp/fd123");
-		System.out.printf("%s\n", doc);
 	}
 
 }
