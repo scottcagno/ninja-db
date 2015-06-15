@@ -24,11 +24,7 @@ public class DataStore implements DatabaseStore, Serializable {
 		this.storeId = storeId;
 	}
 
-	private static final ConcurrentMap<UUID,Document> documents = new ConcurrentHashMap<>(16, 0.80f, 1);
-
-	private boolean haveMatchingIds(UUID documentId1, UUID documentId2) {
-		return (documentId1.equals(documentId2));
-	}
+	private static ConcurrentMap<UUID,Document> documents = new ConcurrentHashMap<>(16, 0.80f, 1);
 
 	public boolean insertDocument(Document document) {
 		UUID documentId = document.get_id();
