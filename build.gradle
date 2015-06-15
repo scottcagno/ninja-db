@@ -1,0 +1,24 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+jar {
+	baseName = 'ninja-db'
+	version = '0.1'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// compile 'com.sparkjava:spark-core:2.2'
+	// compile 'io.netty:netty-all:4.0.26.Final'
+	// compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+	compile 'com.google.code.gson:gson:2.3.1'
+	// compile 'org.mapdb:mapdb:1.0.7'
+
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.0'
+}

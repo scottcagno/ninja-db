@@ -22,7 +22,7 @@ public class Main {
 		System.out.printf("users document count: %d\n", db.returnStore("users").getDocumentCount());
 		System.out.println(db.returnStore("users"));
 
-		Gson gson = new Gson();
+		//Gson gson = new Gson();
 
 	}
 
