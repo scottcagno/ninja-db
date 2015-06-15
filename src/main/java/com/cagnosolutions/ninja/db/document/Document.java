@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.db;
+package com.cagnosolutions.ninja.db.document;
 
 import java.util.Map;
 import java.util.UUID;

@@ -1,6 +1,6 @@
 package com.cagnosolutions.ninja.mmap;
 
-import com.cagnosolutions.ninja.db.DataStore;
+import com.cagnosolutions.ninja.db.store.DataStore;
 
 import java.io.*;
 import java.util.Map;
