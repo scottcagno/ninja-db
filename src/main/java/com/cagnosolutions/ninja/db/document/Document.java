@@ -1,5 +1,6 @@
 package com.cagnosolutions.ninja.db.document;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.UUID;
 
@@ -8,13 +9,15 @@ import java.util.UUID;
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-public class Document {
+public class Document implements Serializable {
+
+	private static final long serialVersionUID = 46315782001L;
 
 	private UUID _id;
 	private UUID _modified;
 	private Map<String, Object> data;
 
-	private Document() {
+	public Document() {
 		this._id = UUID.randomUUID();
 		this._modified = UUID.randomUUID();
 	}
@@ -25,6 +28,10 @@ public class Document {
 
 	public UUID get_modified() {
 		return _modified;
+	}
+
+	public void updateModified() {
+		this._modified = UUID.randomUUID();
 	}
 
 	public Map<String, Object> getData() {

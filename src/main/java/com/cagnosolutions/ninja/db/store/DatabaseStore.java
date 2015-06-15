@@ -11,9 +11,9 @@ import java.util.UUID;
  */
 
 public interface DatabaseStore {
-	public void insertDocument(Document document);
+	public boolean insertDocument(Document document);
 	public Document updateDocument(UUID documentId, Document document);
-	public void deleteDocument(UUID documentId);
+	public boolean deleteDocument(UUID documentId);
 	public Document returnDocument(UUID documentId);
 	public List<Document> returnDocuments(UUID ...documentIds);
 }

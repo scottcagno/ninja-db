@@ -3,7 +3,7 @@ package com.cagnosolutions.ninja.mmap;
 import com.cagnosolutions.ninja.db.store.DataStore;
 
 import java.io.*;
-import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by Scott Cagno.
@@ -22,13 +22,13 @@ public class MemoryMappedFile {
 		this.path = path;
 	}
 
-	public void write(Map<String, DataStore> dataStore) throws IOException {
+	public void writeObject(Object obj) throws IOException {
 		ObjectOutputStream objectOutputStream = null;
 		try {
 			RandomAccessFile randomAccessFile = new RandomAccessFile(path, "rw");
 			FileOutputStream fileOutputStream = new FileOutputStream(randomAccessFile.getFD());
 			objectOutputStream = new ObjectOutputStream(fileOutputStream);
-			objectOutputStream.writeObject(dataStore);
+			objectOutputStream.writeObject(obj);
 		} finally {
 			if (objectOutputStream != null) {
 				objectOutputStream.close();
@@ -36,13 +36,41 @@ public class MemoryMappedFile {
 		}
 	}
 
-	public Map<String, DataStore> read(String fileName) throws IOException, ClassNotFoundException {
+	public Object readObject() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectInputStream = null;
 		try {
-			RandomAccessFile randomAccessFile = new RandomAccessFile(fileName, "r");
+			RandomAccessFile randomAccessFile = new RandomAccessFile(path, "r");
 			FileInputStream fileInputStream = new FileInputStream(randomAccessFile.getFD());
 			objectInputStream = new ObjectInputStream(fileInputStream);
-			return (Map<String, DataStore>) objectInputStream.readObject();
+			return objectInputStream.readObject();
+		} finally {
+			if (objectInputStream != null) {
+				objectInputStream.close();
+			}
+		}
+	}
+
+	public void writeDataStore(ConcurrentMap<String,DataStore> dataStores) throws IOException {
+		ObjectOutputStream objectOutputStream = null;
+		try {
+			RandomAccessFile randomAccessFile = new RandomAccessFile(path, "rw");
+			FileOutputStream fileOutputStream = new FileOutputStream(randomAccessFile.getFD());
+			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			objectOutputStream.writeObject(dataStores);
+		} finally {
+			if (objectOutputStream != null) {
+				objectOutputStream.close();
+			}
+		}
+	}
+
+	public ConcurrentMap<String,DataStore> readDataStore() throws IOException, ClassNotFoundException {
+		ObjectInputStream objectInputStream = null;
+		try {
+			RandomAccessFile randomAccessFile = new RandomAccessFile(path, "r");
+			FileInputStream fileInputStream = new FileInputStream(randomAccessFile.getFD());
+			objectInputStream = new ObjectInputStream(fileInputStream);
+			return (ConcurrentMap<String,DataStore>) objectInputStream.readObject();
 		} finally {
 			if (objectInputStream != null) {
 				objectInputStream.close();

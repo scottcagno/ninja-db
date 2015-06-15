@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.db;
+package com.cagnosolutions.ninja.db.engine;
 
 import com.cagnosolutions.ninja.db.store.DataStore;
 import com.cagnosolutions.ninja.db.document.Document;
