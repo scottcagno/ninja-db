@@ -103,7 +103,7 @@ public class Engine implements DatabaseEngine, Serializable {
 	}
 
 	public DataStore returnStore(String storeId) {
-		return dataStores.computeIfPresent(storeId, (k, v) -> (v == null) ? new DataStore("null") : v);
+		return dataStores.computeIfPresent(storeId, (k, v) -> (v == null) ? new DataStore(null) : v);
 	}
 
 	/**

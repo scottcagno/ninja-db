@@ -27,7 +27,7 @@ public class DataStore implements DatabaseStore, Serializable {
 	}
 
 	public boolean insertDocument(Document document) {
-		UUID documentId = document.get_id();
+		UUID documentId = document.getId();
 		if(documents.containsKey(documentId))
 			return false; // document exists, no need to insert
 		documents.put(documentId, document);
@@ -35,7 +35,7 @@ public class DataStore implements DatabaseStore, Serializable {
 	}
 
 	public Document updateDocument(UUID documentId, Document document) {
-		if (documentId.equals(document.get_id())) {
+		if (documentId.equals(document.getId())) {
 			if (documents.containsKey(documentId)) {
 				document.updateModified();
 				documents.put(documentId, document);

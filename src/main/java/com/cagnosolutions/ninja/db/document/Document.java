@@ -1,7 +1,6 @@
 package com.cagnosolutions.ninja.db.document;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -13,46 +12,46 @@ public class Document implements Serializable {
 
 	private static final long serialVersionUID = 46315782001L;
 
-	private UUID _id;
-	private UUID _modified;
-	private HashMap<String, Object> data;
+	private UUID id;
+	private UUID modified;
+	private String data;
 
 	public Document() {
-		this._id = UUID.randomUUID();
-		this._modified = UUID.randomUUID();
-		this.data = new HashMap<>();
+		this.id = UUID.randomUUID();
+		this.modified = UUID.randomUUID();
+		this.data = null;
 	}
 
-	public Document(HashMap<String, Object> data) {
-		this._id = UUID.randomUUID();
-		this._modified = UUID.randomUUID();
+	public Document(String data) {
+		this.id = UUID.randomUUID();
+		this.modified = UUID.randomUUID();
 		this.data = data;
 	}
 
-	public UUID get_id() {
-		return _id;
+	public UUID getId() {
+		return id;
 	}
 
-	public UUID get_modified() {
-		return _modified;
+	public UUID getModified() {
+		return modified;
 	}
 
 	public void updateModified() {
-		this._modified = UUID.randomUUID();
+		this.modified = UUID.randomUUID();
 	}
 
-	public HashMap<String, Object> getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(HashMap<String, Object> data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
 	public String toString() {
 		return "Document{" +
-				"_id=" + _id +
-				", _modified=" + _modified +
+				"id=" + id +
+				", modified=" + modified +
 				", data=" + data +
 				'}';
 	}

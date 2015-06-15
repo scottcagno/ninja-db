@@ -12,10 +12,6 @@ import java.util.concurrent.ConcurrentMap;
 
 public class MemoryMappedFile {
 
-	public static final int KB = 1024;
-	public static final int MB = KB*1024;
-	public int SIZE = MB;
-
 	private String path;
 
 	public MemoryMappedFile(String path) {
