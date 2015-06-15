@@ -18,13 +18,13 @@ public class DataStore implements DatabaseStore, Serializable {
 
 	private static final long serialVersionUID = 46315782002L;
 
+	private static ConcurrentMap<UUID,Document> documents = new ConcurrentHashMap<>(16, 0.80f, 1);
+
 	private String storeId;
 
 	public DataStore(String storeId) {
 		this.storeId = storeId;
 	}
-
-	private static ConcurrentMap<UUID,Document> documents = new ConcurrentHashMap<>(16, 0.80f, 1);
 
 	public boolean insertDocument(Document document) {
 		UUID documentId = document.get_id();
