@@ -62,6 +62,10 @@ public class Engine implements DatabaseEngine, Serializable {
 		}
 	}
 
+	public void eraseSnapshot() {
+		fd.deleteFile();
+	}
+
 	private static ScheduledFuture<?> snapshotHandler = null;
 
 	public void enableSnapshots() {
@@ -87,7 +91,7 @@ public class Engine implements DatabaseEngine, Serializable {
 	public void createStore(String storeId) {
 		if(dataStores.containsKey(storeId))
 			return; // store exists, no need to create store
-		dataStores.put(storeId, new DataStore());
+		dataStores.put(storeId, new DataStore(storeId));
 		changes++;
 	}
 
@@ -99,7 +103,7 @@ public class Engine implements DatabaseEngine, Serializable {
 	}
 
 	public DataStore returnStore(String storeId) {
-		return dataStores.computeIfPresent(storeId, (k, v) -> (v == null) ? new DataStore() : v);
+		return dataStores.computeIfPresent(storeId, (k, v) -> (v == null) ? new DataStore("null") : v);
 	}
 
 	/**

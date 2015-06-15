@@ -18,6 +18,12 @@ public class DataStore implements DatabaseStore, Serializable {
 
 	private static final long serialVersionUID = 46315782002L;
 
+	private String storeId;
+
+	public DataStore(String storeId) {
+		this.storeId = storeId;
+	}
+
 	private static final ConcurrentMap<UUID,Document> documents = new ConcurrentHashMap<>(16, 0.80f, 1);
 
 	private boolean haveMatchingIds(UUID documentId1, UUID documentId2) {
@@ -68,5 +74,13 @@ public class DataStore implements DatabaseStore, Serializable {
 
 	public int getDocumentCount() {
 		return documents.size();
+	}
+
+	public String toString() {
+		String s = "DataStore{\n\tstoreId:" + storeId + ",\n\tdocuments=[\n";
+		for(Document document : documents.values())
+			s+= "\t\t" + document.toString() + "\n";
+		s+="]}";
+		return s;
 	}
 }

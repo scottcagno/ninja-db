@@ -22,6 +22,10 @@ public class MemoryMappedFile {
 		this.path = path;
 	}
 
+	public void deleteFile() {
+		new File(path).delete();
+	}
+
 	public void writeObject(Object obj) throws IOException {
 		ObjectOutputStream objectOutputStream = null;
 		try {
