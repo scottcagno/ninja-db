@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.test;
+package com.cagnosolutions.ninja.test1;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.test;
+package com.cagnosolutions.ninja.test1;
 
 /**
  * Created by Scott Cagno.

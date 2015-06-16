@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.test;
+package com.cagnosolutions.ninja.test1;
 
 import java.util.Collections;
 import java.util.Map;
