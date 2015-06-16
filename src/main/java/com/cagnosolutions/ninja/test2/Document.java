@@ -13,7 +13,7 @@ import java.util.UUID;
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-public class Document implements Serializable {
+public class Document implements Serializable, Comparable<Document> {
 
 	private static final long serialVersionUID = -11235813213455892L;
 
@@ -35,14 +35,35 @@ public class Document implements Serializable {
 		this.data = data;
 	}
 
+	public UUID getId() {
+		return id;
+	}
+
+	public void updateModified() {
+		this.modified = Type1UUID.getTimeUUID();
+	}
+
 	public Map<String, Object> getData() {
 		return data;
 	}
 
 	public void setData(Map<String, Object> data) {
-		this.modified = Type1UUID.getTimeUUID();
+		updateModified();
 		this.data = data;
 	}
+
+	/**
+	 * Comparable<T> implementation
+	 */
+
+	public int compareTo(Document that) {
+		return this.id.compareTo(that.getId());
+	}
+
+
+	/**
+	 * Serialization overrides, and validators
+	 */
 
 	private void writeObject(ObjectOutputStream stream) throws IOException {
 		stream.writeObject(id);
@@ -60,5 +81,17 @@ public class Document implements Serializable {
 	private void validate() {
 		if(id == null || modified == null || data == null)
 			throw new IllegalArgumentException("ninja-db.document");
+	}
+
+	/**
+	 * Custom toString() method
+	 */
+
+	public String toString() {
+		return "Document{" +
+				"id=" + id.timestamp() +
+				", modified=" + modified.timestamp() +
+				", data=" + data +
+				'}';
 	}
 }

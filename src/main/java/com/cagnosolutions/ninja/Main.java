@@ -1,6 +1,11 @@
 package com.cagnosolutions.ninja;
 
 import com.cagnosolutions.ninja.test2.Database;
+import com.cagnosolutions.ninja.test2.Document;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Scott Cagno.
@@ -14,6 +19,63 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		Database db = new Database();
+		//createAndSave(db);
+		//readAndLoad(db);
+		writeTest(db, 250000);
+	}
+
+	public static void writeTest(Database db, int dataSet) {
+		System.out.println("Creating users-test store...");
+		db.createStore("users-test");
+		System.out.printf("Loading users-test store (%d)...\n", dataSet);
+		for (int i = 0; i < dataSet; i++) {
+			Map<String,Object> testData = new HashMap<>();
+			testData.put("id", i);
+			testData.put("active", true);
+			testData.put("name", "Mr. Number " + i);
+			db.insertDocument("users-test", new Document(testData));
+		}
+		System.out.println("Finished loading, writing to disk...");
+		long start = System.currentTimeMillis();
+		db.save();
+		System.out.printf("Took %dms to write %d entries to disk\n", System.currentTimeMillis() - start, dataSet);
+
+	}
+
+	public static void readTest(Database db) {
+
+	}
+
+	public static void createAndSave(Database db) {
+
+		db.createStore("users");
+
+		Map<String,Object> user1 = new HashMap<>();
+		user1.put("id", 1);
+		user1.put("active", true);
+		user1.put("name", "Mr. Number One");
+		db.insertDocument("users", new Document(user1));
+
+		Map<String,Object> user2 = new HashMap<>();
+		user2.put("id", 2);
+		user2.put("active", false);
+		user2.put("name", "Mr. Two");
+		db.insertDocument("users", new Document(user2));
+
+		Map<String,Object> user3 = new HashMap<>();
+		user3.put("id", 3);
+		user3.put("active", true);
+		user3.put("name", "Mrs. Three");
+		db.insertDocument("users", new Document(user3));
+
+		db.save();
+	}
+
+	public static void readAndLoad(Database db) {
+
+		db.load();
+		List<Document> documents = db.returnAllDocuments("users");
+		documents.forEach(System.out::println);
 
 	}
 
