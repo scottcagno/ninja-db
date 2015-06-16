@@ -15,7 +15,7 @@ import java.util.concurrent.*;
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-public class Engine implements DatabaseEngine, Serializable {
+public class Engine implements Serializable {
 
 	private static final long serialVersionUID = 46315782003L;
 
@@ -103,7 +103,9 @@ public class Engine implements DatabaseEngine, Serializable {
 	}
 
 	public DataStore returnStore(String storeId) {
-		return dataStores.computeIfPresent(storeId, (k, v) -> (v == null) ? new DataStore(null) : v);
+		if(dataStores.containsKey(storeId))
+			return dataStores.get(storeId);
+		return null;
 	}
 
 	/**
