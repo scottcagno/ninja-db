@@ -34,7 +34,7 @@ public class Main {
 			testData.put("id", i);
 			testData.put("active", true);
 			testData.put("name", "Mr. Number " + i);
-			db.insertDocument("users-test", new Document(testData));
+			db.createDocument("users-test", testData);
 		}
 		System.out.println("Finished loading, writing to disk...");
 		long start = System.currentTimeMillis();
@@ -59,19 +59,19 @@ public class Main {
 		user1.put("id", 1);
 		user1.put("active", true);
 		user1.put("name", "Mr. Number One");
-		db.insertDocument("users", new Document(user1));
+		db.createDocument("users", user1);
 
 		Map<String,Object> user2 = new HashMap<>();
 		user2.put("id", 2);
 		user2.put("active", false);
 		user2.put("name", "Mr. Two");
-		db.insertDocument("users", new Document(user2));
+		db.createDocument("users", user2);
 
 		Map<String,Object> user3 = new HashMap<>();
 		user3.put("id", 3);
 		user3.put("active", true);
 		user3.put("name", "Mrs. Three");
-		db.insertDocument("users", new Document(user3));
+		db.createDocument("users", user3);
 
 		db.save();
 	}

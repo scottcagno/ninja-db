@@ -57,7 +57,7 @@ public class Database {
 	 * Document level methods
 	 */
 
-	public Document insertDocument(String storeId, Map<String, Object> data) {
+	public Document createDocument(String storeId, Map<String, Object> data) {
 		return engine.createDocument(storeId, data);
 	}
 
