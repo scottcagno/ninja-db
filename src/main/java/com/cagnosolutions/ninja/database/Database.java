@@ -1,6 +1,7 @@
 package com.cagnosolutions.ninja.database;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -56,16 +57,16 @@ public class Database {
 	 * Document level methods
 	 */
 
-	public void insertDocument(String storeId, Document document) {
-		engine.insertDocument(storeId, document);
+	public Document insertDocument(String storeId, Map<String, Object> data) {
+		return engine.createDocument(storeId, data);
 	}
 
-	public void updateDocument(String storeId, UUID documentId, Document document) {
-		engine.updateDocument(storeId, documentId, document);
+	public boolean updateDocument(String storeId, UUID documentId, Map<String, Object> updatedData) {
+		return engine.updateDocument(storeId, documentId, updatedData);
 	}
 
-	public void deleteDocument(String storeId, UUID documentId) {
-		engine.deleteDocument(storeId, documentId);
+	public boolean deleteDocument(String storeId, UUID documentId) {
+		return engine.deleteDocument(storeId, documentId);
 	}
 
 	public Document returnDocument(String storeId, UUID documentId) {

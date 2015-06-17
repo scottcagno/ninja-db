@@ -44,25 +44,25 @@ public class Engine implements Serializable {
 	 * Document level methods
 	 */
 
-	public void insertDocument(String storeId, Document document) {
+	public Document createDocument(String storeId, Map<String,Object> data) {
 		if(!stores.containsKey(storeId))
-			return;
+			return null;
 		Store store = stores.get(storeId);
-		store.insertDocument(document);
+		return store.createDocument(data);
 	}
 
-	public void updateDocument(String storeId, UUID documentId, Document document) {
+	public boolean updateDocument(String storeId, UUID documentId, Map<String, Object> updatedData) {
 		if(!stores.containsKey(storeId))
-			return;
+			return false;
 		Store store = stores.get(storeId);
-		store.updateDocument(documentId, document);
+		return store.updateDocument(documentId, updatedData);
 	}
 
-	public void deleteDocument(String storeId, UUID documentId) {
+	public boolean deleteDocument(String storeId, UUID documentId) {
 		if(!stores.containsKey(storeId))
-			return;
+			return false;
 		Store store = stores.get(storeId);
-		store.deleteDocument(documentId);
+		return store.deleteDocument(documentId);
 	}
 
 	public Document returnDocument(String storeId, UUID documentId) {

@@ -28,21 +28,25 @@ public class Store implements Serializable{
 	 * Document level methods
 	 */
 
-	public void insertDocument(Document document) {
-		documents.putIfAbsent(document.getId(), document);
+	public Document createDocument(Map<String,Object> data) {
+		Document document = new Document(data);
+		documents.put(document.getId(), document);
+		return document;
 	}
 
-	public void updateDocument(UUID documentId, Document document) {
+	public boolean updateDocument(UUID documentId, Map<String, Object> updatedData) {
 		if(!documents.containsKey(documentId))
-			return;
-		document.updateModified();
-		documents.put(documentId, document);
+			return false;
+		Document document = documents.get(documentId);
+		document.setData(updatedData);
+		return true;
 	}
 
-	public void deleteDocument(UUID documentId) {
+	public boolean deleteDocument(UUID documentId) {
 		if(!documents.containsKey(documentId))
-			return;
+			return false;
 		documents.remove(documentId);
+		return true;
 	}
 
 	public Document returnDocument(UUID documentId) {
