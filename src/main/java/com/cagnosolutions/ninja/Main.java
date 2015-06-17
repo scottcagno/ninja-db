@@ -1,7 +1,7 @@
 package com.cagnosolutions.ninja;
 
-import com.cagnosolutions.ninja.test2.Database;
-import com.cagnosolutions.ninja.test2.Document;
+import com.cagnosolutions.ninja.database.Database;
+import com.cagnosolutions.ninja.database.Document;
 
 import java.util.HashMap;
 import java.util.List;
