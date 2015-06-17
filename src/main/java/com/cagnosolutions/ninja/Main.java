@@ -21,7 +21,8 @@ public class Main {
 		Database db = new Database();
 		//createAndSave(db);
 		//readAndLoad(db);
-		writeTest(db, 250000);
+		//writeTest(db, 250000);
+		readTest(db);
 	}
 
 	public static void writeTest(Database db, int dataSet) {
@@ -43,7 +44,11 @@ public class Main {
 	}
 
 	public static void readTest(Database db) {
-
+		System.out.println("Reading data into memory from user-test store...");
+		long start = System.currentTimeMillis();
+		db.load();
+		System.out.printf("Took %dms to load %d store(s) and %d documents from disk...\n",
+				System.currentTimeMillis() - start, db.getStoreCount(), db.getTotalDocumentCount());
 	}
 
 	public static void createAndSave(Database db) {
