@@ -11,6 +11,8 @@ import java.util.UUID;
 
 public class Database {
 
+	//TODO: 1) Timed snapshots 2) Export as JSON, CSV
+
 	private Engine engine;
 	private DiskQueue diskQueue;
 
