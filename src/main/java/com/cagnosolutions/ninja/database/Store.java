@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * Created by Scott Cagno.
@@ -103,5 +104,13 @@ public class Store implements Serializable{
 
 	public int getDocumentCount() {
 		return this.documents.size();
+	}
+
+	public List<Document> returnAllDocumentsContaining(String key) {
+		if(!documents.containsKey(key))
+			return null;
+		return documents.values().stream().filter(
+				doc -> doc.getData().keySet().contains(key))
+					.collect(Collectors.toList());
 	}
 }

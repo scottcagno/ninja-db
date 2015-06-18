@@ -60,8 +60,8 @@ public class Database {
 		engine.createStore(storeId);
 	}
 
-	public void deleteStore(String storeId) {
-		engine.deleteStore(storeId);
+	public boolean deleteStore(String storeId) {
+		return engine.deleteStore(storeId);
 	}
 
 	public int getStoreCount() {
@@ -98,6 +98,14 @@ public class Database {
 
 	public int getTotalDocumentCount() {
 		return engine.getTotalDocumentCount();
+	}
+
+	/**
+	 * Search & query methods
+	 */
+
+	public List<Document> returnAllDocumentsContaining(String storeId, String key) {
+		return engine.returnAllDocumentsContaining(storeId, key);
 	}
 
 }

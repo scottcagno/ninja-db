@@ -34,12 +34,13 @@ public class Engine implements Serializable {
 		stores.putIfAbsent(storeId, new Store(storeId));
 	}
 
-	public void deleteStore(String storeId) {
+	public boolean deleteStore(String storeId) {
 		if(!stores.containsKey(storeId))
-			return;
+			return false;
 		Store store = stores.get(storeId);
 		store.clearAll();
 		stores.remove(storeId);
+		return true;
 	}
 
 	/**
@@ -130,5 +131,16 @@ public class Engine implements Serializable {
 		for(Store store : stores.values())
 			totalDocuments += store.getDocumentCount();
 		return totalDocuments;
+	}
+
+	/**
+	 * Search & query methods
+	 */
+
+	public List<Document> returnAllDocumentsContaining(String storeId, String key) {
+		if(!stores.containsKey(storeId))
+			return null;
+		Store store = stores.get(storeId);
+		return store.returnAllDocumentsContaining(key);
 	}
 }
