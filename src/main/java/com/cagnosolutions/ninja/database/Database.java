@@ -2,9 +2,7 @@ package com.cagnosolutions.ninja.database;
 
 import com.google.gson.Gson;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Scott Cagno.
@@ -106,6 +104,10 @@ public class Database {
 
 	public List<Document> returnAllDocumentsContaining(String storeId, String key) {
 		return engine.returnAllDocumentsContaining(storeId, key);
+	}
+
+	public List<Document> query(String storeId) {
+		return engine.query(storeId);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.cagnosolutions.ninja.database.test;
 import com.cagnosolutions.ninja.database.Database;
 import com.cagnosolutions.ninja.database.Document;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,5 +90,33 @@ public class TestCalls {
 		db.createDocument("foobar", data2);
 
 		db.export();
+	}
+
+	public static void testQuery(Database db) {
+		db.createStore("users");
+
+		Map<String, Object> user1 = new HashMap<>();
+		user1.put("id", 1);
+		user1.put("name", new ArrayList<String>(){{ add("Scott"); add("Cagno"); }});
+		user1.put("email", "scottiecagno@gmail.com");
+		user1.put("active", false);
+
+		Map<String, Object> user2 = new HashMap<>();
+		user2.put("id", 2);
+		user2.put("name", new ArrayList<String>(){{ add("Kayla"); add("Cagno"); }});
+		user2.put("email", "kaylacagno@gmail.com");
+		user2.put("active", true);
+
+		Map<String, Object> user3 = new HashMap<>();
+		user3.put("id", 3);
+		user3.put("name", new ArrayList<String>(){{ add("Gabe"); add("Witmer"); }});
+		user3.put("email", "gabenwitmer@gmail.com");
+		user3.put("active", true);
+
+		db.createDocument("users", user1); // scott
+		db.createDocument("users", user2); // kayla
+		db.createDocument("users", user3); // gabe
+
+		//db.findAllFrom("users").where("active").is(true);
 	}
 }
