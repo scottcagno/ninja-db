@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.database;
+package com.cagnosolutions.ninja.database.util;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;

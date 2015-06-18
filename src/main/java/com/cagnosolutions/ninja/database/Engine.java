@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -21,7 +19,11 @@ public class Engine implements Serializable {
 	private Map<String,Store> stores;
 
 	public Engine() {
-		this.stores = new ConcurrentHashMap<>(16, 0.80f, 2);
+		this.stores = new ConcurrentHashMap<>(16, 0.80f, 4);
+	}
+
+	public Collection<Store> getStores() {
+		return Collections.unmodifiableCollection(stores.values());
 	}
 
 	/**

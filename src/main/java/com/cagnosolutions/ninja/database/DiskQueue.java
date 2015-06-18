@@ -1,5 +1,6 @@
 package com.cagnosolutions.ninja.database;
 
+
 import java.io.*;
 
 /**
@@ -14,6 +15,16 @@ public class DiskQueue {
 	public DiskQueue(String path) {
 		this.path = path;
 	}
+
+	public void export(String path, String documents) {
+		try {
+			_export(path, documents);
+		} catch (IOException ex) {
+			System.err.printf("Error exporting JSON to disk: %s\n", path);
+			ex.printStackTrace();
+		}
+	}
+
 
 	public Engine read() {
 		Engine engine = null;
@@ -56,6 +67,20 @@ public class DiskQueue {
 			FileOutputStream fileOutputStream = new FileOutputStream(randomAccessFile.getFD());
 			objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			objectOutputStream.writeObject(engine);
+		} finally {
+			if (objectOutputStream != null) {
+				objectOutputStream.close();
+			}
+		}
+	}
+
+	private void _export(String path, String documents) throws IOException {
+		ObjectOutputStream objectOutputStream = null;
+		try {
+			RandomAccessFile randomAccessFile = new RandomAccessFile(path, "rw");
+			FileOutputStream fileOutputStream = new FileOutputStream(randomAccessFile.getFD());
+			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			objectOutputStream.writeObject(documents);
 		} finally {
 			if (objectOutputStream != null) {
 				objectOutputStream.close();

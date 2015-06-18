@@ -22,7 +22,23 @@ public class Main {
 		//createAndSave(db);
 		//readAndLoad(db);
 		//writeTest(db, 250000);
-		readTest(db);
+		//readTest(db);
+
+		db.createStore("foobar");
+
+		Map<String,Object> data1 = new HashMap<>();
+		data1.put("id", 123);
+		data1.put("email", "foo@bar.com");
+		data1.put("active", true);
+		db.createDocument("data1", data1);
+
+		Map<String,Object> data2 = new HashMap<>();
+		data2.put("id", 456);
+		data2.put("email", "bar@baz.com");
+		data2.put("active", false);
+		db.createDocument("data2", data2);
+
+		db.export();
 	}
 
 	public static void writeTest(Database db, int dataSet) {

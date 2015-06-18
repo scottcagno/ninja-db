@@ -21,7 +21,15 @@ public class Store implements Serializable{
 
 	public Store(String id) {
 		this.id = id;
-		this.documents = new ConcurrentHashMap<>(16, 0.80f, 2);
+		this.documents = new ConcurrentHashMap<>(16, 0.80f, 4);
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public Collection<Document> getDocuments() {
+		return Collections.unmodifiableCollection(documents.values());
 	}
 
 	/**

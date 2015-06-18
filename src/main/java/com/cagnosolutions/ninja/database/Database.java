@@ -1,5 +1,7 @@
 package com.cagnosolutions.ninja.database;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -37,6 +39,17 @@ public class Database {
 	public void load() {
 		this.engine.clearAll();
 		this.engine = diskQueue.read();
+	}
+
+	/**
+	 * Export JSON method
+	 */
+
+	public void export() {
+		for(Store store : engine.getStores())
+			this.diskQueue.export(String.format("/tmp/ninja-%s.store",
+					store.getId()),
+						new Gson().toJson(store.getDocuments()));
 	}
 
 	/**

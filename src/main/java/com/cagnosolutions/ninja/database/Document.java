@@ -1,5 +1,7 @@
 package com.cagnosolutions.ninja.database;
 
+import com.cagnosolutions.ninja.database.util.Type1UUID;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
