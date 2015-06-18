@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.database.test;
+package com.cagnosolutions.ninja.database.util;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

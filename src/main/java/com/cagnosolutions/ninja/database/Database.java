@@ -102,12 +102,8 @@ public class Database {
 	 * Search & query methods
 	 */
 
-	public List<Document> returnAllDocumentsContaining(String storeId, String key) {
-		return engine.returnAllDocumentsContaining(storeId, key);
-	}
-
-	public List<Document> query(String storeId) {
-		return engine.query(storeId);
+	public DocumentSet findAllIn(String storeId) {
+		return engine.findAllIn(storeId);
 	}
 
 }

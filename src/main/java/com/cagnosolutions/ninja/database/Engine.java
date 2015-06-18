@@ -136,18 +136,11 @@ public class Engine implements Serializable {
 	/**
 	 * Search & query methods
 	 */
-
-	public List<Document> returnAllDocumentsContaining(String storeId, String key) {
-		if(!stores.containsKey(storeId))
-			return null;
-		Store store = stores.get(storeId);
-		return store.returnAllDocumentsContaining(key);
-	}
 	
-	public List<Document> query(String storeId) {
+	public DocumentSet findAllIn(String storeId) {
 		if(!stores.containsKey(storeId))
 			return null;
 		Store store = stores.get(storeId);
-		return store.returnAllDocuments();
+		return new DocumentSet(store.returnAllDocuments());
 	}
 }

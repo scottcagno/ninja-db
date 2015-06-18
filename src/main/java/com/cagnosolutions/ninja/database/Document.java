@@ -91,8 +91,8 @@ public class Document implements Serializable, Comparable<Document> {
 
 	public String toString() {
 		return "Document{" +
-				"id=" + id.timestamp() +
-				", modified=" + modified.timestamp() +
+				"id=" + id +
+				", modified=" + modified +
 				", data=" + data +
 				'}';
 	}
