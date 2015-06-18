@@ -106,6 +106,10 @@ public class Store implements Serializable{
 		return this.documents.size();
 	}
 
+	/**
+	 * Search & query methods
+	 */
+
 	public List<Document> returnAllDocumentsContaining(String key) {
 		if(!documents.containsKey(key))
 			return null;
