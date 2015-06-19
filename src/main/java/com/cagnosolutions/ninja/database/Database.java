@@ -5,6 +5,9 @@ import com.google.gson.Gson;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Scott Cagno.
@@ -15,16 +18,28 @@ public class Database {
 
 	//TODO: 1) Timed snapshots 2) Export as JSON, CSV 3) Search/filter/query methods
 
-	private Engine engine;
-	private DiskQueue diskQueue;
-	private final static Database INSTANCE = new Database();
-	private Object stats;
+	private static Engine engine;
+	private static DiskQueue diskQueue;
+	private static ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+	private static final Database INSTANCE = new Database();
 
 	private Database() {
-		this.engine = new Engine();
-		this.diskQueue = new DiskQueue("/tmp/ninja.db");
+		engine = new Engine();
+		diskQueue = new DiskQueue("/tmp/ninja.db");
+		service.scheduleAtFixedRate(snapshot, 0, 15, TimeUnit.MINUTES);
 	}
 
+	Runnable snapshot = new Runnable() {
+		public void run() {
+			INSTANCE.writeSnapshot();
+			System.out.println("Hello !!");
+		}
+	};
+	
+	private void writeSnapshot() {
+		diskQueue.write(engine);
+	}
+	
 	public static Database getInstance() {
 		return INSTANCE;
 	}
@@ -38,8 +53,8 @@ public class Database {
 	}
 
 	public void load() {
-		this.engine.clearAll();
-		this.engine = diskQueue.read();
+		engine.clearAll();
+		engine = diskQueue.read();
 	}
 
 	/**
@@ -48,7 +63,7 @@ public class Database {
 
 	public void export() {
 		for(Store store : engine.getStores())
-			this.diskQueue.export(String.format("/tmp/ninja-%s.store",
+			diskQueue.export(String.format("/tmp/ninja-%s.store",
 					store.getId()),
 						new Gson().toJson(store.getDocuments()));
 	}
