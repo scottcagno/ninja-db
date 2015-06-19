@@ -2,7 +2,9 @@ package com.cagnosolutions.ninja.database;
 
 import com.google.gson.Gson;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by Scott Cagno.
@@ -15,15 +17,16 @@ public class Database {
 
 	private Engine engine;
 	private DiskQueue diskQueue;
+	private final static Database INSTANCE = new Database();
+	private Object stats;
 
-	public Database(String path) {
-		this.engine = new Engine();
-		this.diskQueue = new DiskQueue(path);
-	}
-
-	public Database() {
+	private Database() {
 		this.engine = new Engine();
 		this.diskQueue = new DiskQueue("/tmp/ninja.db");
+	}
+
+	public static Database getInstance() {
+		return INSTANCE;
 	}
 
 	/**
@@ -54,8 +57,8 @@ public class Database {
 	 * Store level methods
 	 */
 
-	public void createStore(String storeId) {
-		engine.createStore(storeId);
+	public boolean createStore(String storeId) {
+		return engine.createStore(storeId);
 	}
 
 	public boolean deleteStore(String storeId) {
@@ -105,5 +108,4 @@ public class Database {
 	public DocumentSet findAllIn(String storeId) {
 		return engine.findAllIn(storeId);
 	}
-
 }

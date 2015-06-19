@@ -14,11 +14,143 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.sparkjava/spark-core/2.2/3be92680f07c1e96b5a28c5e2b121df143963ae2/spark-core-2.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.sparkjava/spark-core/2.2/da1756a5861f92683f343c1465530bb3111cc5b1/spark-core-2.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
           <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/563dcb685903c96ce8abbd03adf7fa49e19aa8b4/gson-2.3.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/acd62e31cc314266e73eebed0b6dd7ea974a0ed/slf4j-api-1.7.7-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.7.7/8095d0b9f7e0a9cd79a663c740e0f8fb31d0e2c8/slf4j-simple-1.7.7.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.7.7/3150039466ad03e6ef1c7ec1c2cbb0d96710cf64/slf4j-simple-1.7.7-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.0.2.v20130417/f2e4f1d2cb1d4ad07b71f4677417345e64e9979d/jetty-server-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.0.2.v20130417/2298f5186374c3822e912e8a9053713027aba229/jetty-server-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-webapp/9.0.2.v20130417/dd8ddd2a736219331697c2e9ca8548f940cfa39a/jetty-webapp-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-webapp/9.0.2.v20130417/3c5d93a7fe159ab4687cbed273e1923ce463fe36/jetty-webapp-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/javax.servlet/3.0.0.v201112011016/aaaa85845fb5c59da00193f06b8e5278d8bf3f8/javax.servlet-3.0.0.v201112011016.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/javax.servlet/3.0.0.v201112011016/15c914135cf30177b83c321250c458396289cd37/javax.servlet-3.0.0.v201112011016-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.0.2.v20130417/5b2bffa33a97578cd363099722e849e16e73492/jetty-http-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.0.2.v20130417/21a5f25dabb16fdce987e86ecaacc960ae3db276/jetty-http-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.0.2.v20130417/5e49f2599ec053af19a5501bad7612ee14382f85/jetty-io-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.0.2.v20130417/4d751c412091c4adaa146323d0e64a991289d39a/jetty-io-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-xml/9.0.2.v20130417/275bf457a6cf3a1afcc5927dd52a00bc12916ec9/jetty-xml-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-xml/9.0.2.v20130417/bb252c821f3a9e79b7427e48233d1bdb0c22e7bb/jetty-xml-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.0.2.v20130417/83a175d8f19b93961f5a7ee94a20ce26a386c040/jetty-servlet-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.0.2.v20130417/f2cd470529f12c6e7a3ebad1e10bcc18672cfbf9/jetty-servlet-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.0.2.v20130417/f26f99a2491774c0c81be34a30f7ebf92c17ab9/jetty-util-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.0.2.v20130417/8470940354c5521f9c0c1f88eee3e36cfde8b232/jetty-util-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.0.2.v20130417/3d775b3046435269578ddd439d8ed26723bb2d74/jetty-security-9.0.2.v20130417.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.0.2.v20130417/ed1dd1800d58370c196df15868b2366927b38c52/jetty-security-9.0.2.v20130417-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

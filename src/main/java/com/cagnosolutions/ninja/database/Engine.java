@@ -30,8 +30,11 @@ public class Engine implements Serializable {
 	 * Store level methods
 	 */
 
-	public void createStore(String storeId) {
-		stores.putIfAbsent(storeId, new Store(storeId));
+	public boolean createStore(String storeId) {
+		if(stores.containsKey(storeId))
+			return false;
+		stores.put(storeId, new Store(storeId));
+		return true;
 	}
 
 	public boolean deleteStore(String storeId) {
