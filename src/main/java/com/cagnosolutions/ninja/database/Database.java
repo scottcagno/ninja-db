@@ -29,11 +29,9 @@ public class Database {
 		service.scheduleAtFixedRate(snapshot, 0, 15, TimeUnit.MINUTES);
 	}
 
-	Runnable snapshot = new Runnable() {
-		public void run() {
-			INSTANCE.writeSnapshot();
-			System.out.println("Hello !!");
-		}
+	Runnable snapshot = () -> {
+		INSTANCE.writeSnapshot();
+		System.out.println("Hello !!");
 	};
 	
 	private void writeSnapshot() {
