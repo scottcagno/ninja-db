@@ -1,7 +1,6 @@
 package com.cagnosolutions.ninja.database;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Scott Cagno.
@@ -20,11 +19,8 @@ public class DocumentSet {
 		this.documents = documents;
 	}
 
-	public DocumentSet cointaining(String key, Object value) {
-		documents.removeIf(document -> {
-			Map<String, Object> data = document.getData();
-			return !data.containsKey(key) || !data.containsValue(value);
-		});
+	public DocumentSet containing(String key, String value) {
+		documents.removeIf(document -> !document.hasDataContaining(key, value));
 		if(documents != null || documents.size() > 0);
 			setDocuments(documents);
 		return this;

@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Scott Cagno.
@@ -27,7 +27,7 @@ public class Document implements Serializable, Comparable<Document> {
 		UUID time = Type1UUID.getTimeUUID();
 		this.id = time;
 		this.modified = time;
-		this.data = new HashMap<>();
+		this.data = new ConcurrentHashMap<>(16, 0.80f, 4);
 	}
 
 	public Document(Map<String, Object> data) {
@@ -52,6 +52,14 @@ public class Document implements Serializable, Comparable<Document> {
 	public void setData(Map<String, Object> data) {
 		updateModified();
 		this.data = data;
+	}
+
+	/**
+	 * Search & query method helpers
+	 */
+
+	public boolean hasDataContaining(String key, String value) {
+		return data.containsKey(key) && value.equals(String.valueOf(data.get(key)));
 	}
 
 	/**

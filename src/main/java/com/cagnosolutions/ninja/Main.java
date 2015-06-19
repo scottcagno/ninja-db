@@ -10,10 +10,9 @@ import com.cagnosolutions.ninja.http.HttpServer;
 
 public class Main {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		Database db = Database.getInstance();
 		HttpServer server = new HttpServer(db, 8080);
 		server.run();
 	}
-
 }

@@ -16,8 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Database {
 
-	//TODO: 1) Timed snapshots 2) Export as JSON, CSV 3) Search/filter/query methods
-
 	private static Engine engine;
 	private static DiskQueue diskQueue;
 	private static ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
@@ -31,9 +29,8 @@ public class Database {
 
 	Runnable snapshot = () -> {
 		INSTANCE.writeSnapshot();
-		System.out.println("Hello !!");
 	};
-	
+
 	private void writeSnapshot() {
 		diskQueue.write(engine);
 	}

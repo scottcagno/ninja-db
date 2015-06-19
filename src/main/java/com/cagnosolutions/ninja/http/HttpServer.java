@@ -67,16 +67,13 @@ public class HttpServer {
 
 		Spark.get("/db/:store", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
-			// check to see if it's not a query command
 			if(req.queryMap().toMap().size() > 0) {
 				DocumentSet documentSet = _db.findAllIn(storeId);
 				Map<String, String[]> queryMap = req.queryMap().toMap();
-				for(Map.Entry<String, String[]> entry : queryMap.entrySet()) {
-					documentSet = documentSet.cointaining(entry.getKey(), entry.getValue()[0]);
-				}
+				for(Map.Entry<String, String[]> entry : queryMap.entrySet())
+					documentSet = documentSet.containing(entry.getKey(), entry.getValue()[0]);
 				return documentSet.find();
 			}
-			// no query, just return all documents
 			return _db.returnAllDocuments(storeId);
 		}, gson::toJson);
 
