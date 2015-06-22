@@ -39,6 +39,11 @@ public class HttpServer {
 
 		Spark.port(_port);
 		Spark.threadPool(maxThreads, minThreads, timeOutMillis);
+		Spark.staticFileLocation("/public");
+
+		/**
+		 * Routing filters
+		 */
 
 		Spark.after((req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
@@ -53,11 +58,10 @@ public class HttpServer {
 			return res;
 		});
 
-		/**
-		 * Public static file location
-		 */
-
-		Spark.staticFileLocation("/public");
+		Spark.get("/", (req, res) -> {
+			res.redirect("/db", 301);
+			return res;
+		});
 
 		/**
 		 * Store endpoints
