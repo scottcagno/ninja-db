@@ -3,8 +3,10 @@ package com.cagnosolutions.ninja.http;
 import com.cagnosolutions.ninja.database.Database;
 import com.cagnosolutions.ninja.database.DocumentSet;
 import com.google.gson.Gson;
+import spark.ModelAndView;
 import spark.Spark;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -34,6 +36,10 @@ public class HttpServer {
 
 	public void run() {
 
+		/**
+		 * Settings & Control
+		 */
+
 		Spark.port(_port);
 		Spark.threadPool(maxThreads, minThreads, timeOutMillis);
 
@@ -49,6 +55,17 @@ public class HttpServer {
 			res.header("Access-Control-Request-Headers", "accept, content-type, x-requested-with");
 			return res;
 		});
+
+
+		/**
+		 * Default Database Views
+		 */
+
+		Spark.get("/db", (req, res) -> {
+			Map<String, Object> attrs = new HashMap<>();
+			attrs.put("message", "Hello World!");
+			return new ModelAndView(attrs, "index.ftl");
+		}, new FreeMarkerEngine());
 
 		Spark.get("/db", (req, res) -> {
 			Map<String, Object> stats = new LinkedHashMap<>();

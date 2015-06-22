@@ -25,6 +25,17 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.sparkjava/spark-template-freemarker/2.0.0/ded988d0dd3813c1149ecb560a386e8db90f694f/spark-template-freemarker-2.0.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.sparkjava/spark-template-freemarker/2.0.0/bce22449903c58b40f3e7f0e34fed4e337ee3949/spark-template-freemarker-2.0.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
           <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -74,6 +85,17 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-webapp/9.0.2.v20130417/3c5d93a7fe159ab4687cbed273e1923ce463fe36/jetty-webapp-9.0.2.v20130417-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.19/a251045e5fadd02824d17f1aa8c412accf1aa1c9/freemarker-2.3.19.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.19/ab4cb735b398b842a67e0010ab4d99856bae20bb/freemarker-2.3.19-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
