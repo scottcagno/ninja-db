@@ -3,11 +3,8 @@ package com.cagnosolutions.ninja.http;
 import com.cagnosolutions.ninja.database.Database;
 import com.cagnosolutions.ninja.database.DocumentSet;
 import com.google.gson.Gson;
-import spark.ModelAndView;
 import spark.Spark;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -56,22 +53,11 @@ public class HttpServer {
 			return res;
 		});
 
-
 		/**
-		 * Default Database Views
+		 * Public static file location
 		 */
 
-		Spark.get("/db", (req, res) -> {
-			Map<String, Object> attrs = new HashMap<>();
-			attrs.put("message", "Hello World!");
-			return new ModelAndView(attrs, "index.ftl");
-		}, new FreeMarkerEngine());
-
-		Spark.get("/db", (req, res) -> {
-			Map<String, Object> stats = new LinkedHashMap<>();
-			stats.put("ninja-db", "v1.0");
-			return stats;
-		}, gson::toJson);
+		Spark.staticFileLocation("/public");
 
 		/**
 		 * Store endpoints
