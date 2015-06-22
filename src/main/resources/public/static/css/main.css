@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 
-html,body {
+html,body,* {
 	font-family: 'Lato', sans-serif;
 }
 
@@ -27,7 +27,8 @@ html,body {
 .primary-light {
 	color: #486F88;
 }
-.primary { color: #29526D;
+.primary {
+	color: #29526D;
 }
 .primary-dark {
 	color: #123852;
