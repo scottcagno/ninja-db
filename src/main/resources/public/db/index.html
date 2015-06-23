@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="/static/img/favicon.ico">
-		<link href="/static/css/style.css" rel="stylesheet">
+		<!--<link href="/static/css/style.css" rel="stylesheet">-->
 		<link href="/static/css/dash.css" rel="stylesheet">
 		<link href="/static/css/main.css" rel="stylesheet">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -132,7 +132,33 @@
 				</div>
 			</div>
 		</div>
+
+
+		<script type="text/html" id="item_tmpl1">
+			<div id="<%=id%>" class="<%=(id % 2 == 1 ? " even" : "")%>">
+			<div class="grid_1 alpha right">
+				<img class="righted" src="<%=profile_image_url%>"/>
+			</div>
+			<div class="grid_6 omega contents">
+				<p><b><a href="/<%=from_user%>"><%=from_user%></a>:</b> <%=text%></p>
+			</div>
+			</div>
+		</script>
+
+		<script type="text/html" id="user_tmpl2">
+			<% for ( var i = 0; i < users.length; i++ ) { %>
+			<li><a href="<%=users[i].url%>"><%=users[i].name%></a></li>
+			<% } %>
+		</script>
+
+		<div id="output"><!-- src == http://ejohn.org/blog/javascript-micro-templating/ --></div>
+
+		<!--var output = document.getElementById("output");
+		output.innerHTML = tmpl("item_tmpl", objectData);-->
+
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="/static/js/tmpl.js"></script>
 		<script src="/static/js/main.js"></script>
 	</body>
 </html>
