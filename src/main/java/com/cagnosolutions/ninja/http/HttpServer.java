@@ -47,7 +47,7 @@ public class HttpServer {
 
 		Spark.after((req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
-			res.type("application/json");
+			//res.type("application/json");
 		});
 
 		Spark.options("/*", (req, res) -> {
@@ -58,10 +58,10 @@ public class HttpServer {
 			return res;
 		});
 
-		Spark.get("/", (req, res) -> {
+		/*Spark.get("/", (req, res) -> {
 			res.redirect("/db", 301);
 			return res;
-		});
+		});*/
 
 		/**
 		 * Store endpoints

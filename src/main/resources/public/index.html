@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>Index</title>
+	</head>
+	<body>
+		<section id="content"></section>
+		<script src="static/js/nunjucks.min.js"></script>
+		<script>
+			nunjucks.configure('tmpl', { autoescape: true });
+
+			//var res = nunjucks.renderString('Hello {{ username }}', { username: 'James' });
+
+			var items = {
+			 items: [
+			 { name: "Item 1" },
+			 { name: "Item 2" },
+			 { name: "Item 3" }
+			 ]
+			 };
+
+			/*
+			var res = nunjucks.render('tmpl1.html', items);
+			document.getElementById("content").innerHTML = res;
+			*/
+
+			var template = nunjucks.compile('Hello {{ username }}');
+			var res = template.render({ username: 'CoolNugget' });
+			document.getElementById("content").innerHTML = res;
+
+
+		</script>
+
+	</body>
+</html>
