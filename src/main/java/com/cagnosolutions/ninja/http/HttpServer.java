@@ -47,7 +47,7 @@ public class HttpServer {
 
 		Spark.after((req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
-			//res.type("application/json");
+			res.type("application/json");
 		});
 
 		Spark.options("/*", (req, res) -> {
