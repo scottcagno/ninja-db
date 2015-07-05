@@ -47,6 +47,17 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/pdfbox/1.8.9/46764c8e1e5b07f0e5ca30104ada3895a15a8921/pdfbox-1.8.9.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/pdfbox/1.8.9/e82873f3ab74dda62c9902cf1a15314876250ff5/pdfbox-1.8.9-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
           <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -96,6 +107,39 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.19/ab4cb735b398b842a67e0010ab4d99856bae20bb/freemarker-2.3.19-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/1.8.9/f792e291ebc560fd6942506216f063f425ec5c74/fontbox-1.8.9.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/1.8.9/4533d841e6b87c72b6e8970fb7185fb356e689cb/fontbox-1.8.9-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/jempbox/1.8.9/e6101f5ac76b0ba086bdc1b3d5b6290ed073ed39/jempbox-1.8.9.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/jempbox/1.8.9/ff5adcdef3b42edbb7c3f18a8f02fd3a8ab1e9ac/jempbox-1.8.9-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/sac/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/f3f156cbff0e0fb0d64bfce31a352cce4a33bc19/commons-logging-1.1.1-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

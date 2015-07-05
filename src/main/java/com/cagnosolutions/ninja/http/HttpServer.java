@@ -1,7 +1,7 @@
 package com.cagnosolutions.ninja.http;
 
-import com.cagnosolutions.ninja.database.Database;
-import com.cagnosolutions.ninja.database.DocumentSet;
+import com.cagnosolutions.ninja.db.Database;
+import com.cagnosolutions.ninja.db.DocumentSet;
 import com.google.gson.Gson;
 import spark.Spark;
 
@@ -58,10 +58,6 @@ public class HttpServer {
 			return res;
 		});
 
-		/*Spark.get("/", (req, res) -> {
-			res.redirect("/db", 301);
-			return res;
-		});*/
 
 		/**
 		 * Store endpoints

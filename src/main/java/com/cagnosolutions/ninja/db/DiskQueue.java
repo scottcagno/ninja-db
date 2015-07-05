@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja.database;
+package com.cagnosolutions.ninja.db;
 
 
 import java.io.*;

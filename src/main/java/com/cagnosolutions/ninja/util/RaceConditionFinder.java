@@ -1,4 +1,4 @@
-package com.cagnosolutions.ninja;
+package com.cagnosolutions.ninja.util;
 
 import java.util.Map;
 import java.util.concurrent.Executor;

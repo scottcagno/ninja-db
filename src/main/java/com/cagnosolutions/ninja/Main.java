@@ -1,6 +1,6 @@
 package com.cagnosolutions.ninja;
 
-import com.cagnosolutions.ninja.database.Database;
+import com.cagnosolutions.ninja.db.Database;
 import com.cagnosolutions.ninja.http.HttpServer;
 
 /**

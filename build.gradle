@@ -14,6 +14,13 @@ dependencies {
 	compile 'com.sparkjava:spark-core:2.2'
 	compile 'com.sparkjava:spark-template-freemarker:2.0.0'
 	compile 'com.google.code.gson:gson:2.3.1'
+
+	// pdf manipulation
+	compile 'org.apache.pdfbox:pdfbox:1.8.9'
+	//compile 'org.apache.pdfbox:fontbox:1.8.9'
+	//compile 'org.apache.pdfbox:jempbox:1.8.9'
+
+
 	// compile 'io.netty:netty-all:4.0.26.Final'
 	// compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
 	// compile 'org.mapdb:mapdb:1.0.7'
