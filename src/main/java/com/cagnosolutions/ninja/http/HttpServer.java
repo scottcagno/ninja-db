@@ -65,7 +65,8 @@ public class HttpServer {
 
 		Spark.put("/db/:store", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
-			return _db.createStore(storeId);
+			boolean ok = _db.createStore(storeId);
+			return ok;
 		}, gson::toJson);
 
 		Spark.get("/db/:store", "application/json", (req, res) -> {

@@ -20,11 +20,9 @@ dependencies {
 	//compile 'org.apache.pdfbox:fontbox:1.8.9'
 	//compile 'org.apache.pdfbox:jempbox:1.8.9'
 
-
 	// compile 'io.netty:netty-all:4.0.26.Final'
 	// compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
 	// compile 'org.mapdb:mapdb:1.0.7'
-
 }
 
 task wrapper(type: Wrapper) {
