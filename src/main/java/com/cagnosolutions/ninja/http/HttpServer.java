@@ -133,11 +133,11 @@ public class HttpServer {
 	}
 	
 	private Map<String, Object> status(int code, boolean successful) {
-		return new HashMap<String,Object>(3){{
-			put("code", code);
-			put("message", HttpStatus.getMessage(code));
-			put("success", successful);
-		}};
+		Map<String, Object> status = new HashMap<>(3);
+		status.put("code", code);
+		status.put("message", HttpStatus.getMessage(code));
+		status.put("success", successful);
+		return status;
 	}
 	
 }
