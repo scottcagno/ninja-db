@@ -1,10 +1,13 @@
 package com.cagnosolutions.ninja.http;
 
 import com.cagnosolutions.ninja.db.Database;
+import com.cagnosolutions.ninja.db.Document;
 import com.cagnosolutions.ninja.db.DocumentSet;
 import com.google.gson.Gson;
+import org.eclipse.jetty.http.HttpStatus;
 import spark.Spark;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -58,7 +61,6 @@ public class HttpServer {
 			return res;
 		});
 
-
 		/**
 		 * Store endpoints
 		 */
@@ -66,7 +68,8 @@ public class HttpServer {
 		Spark.put("/db/:store", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
 			boolean ok = _db.createStore(storeId);
-			return ok;
+			res.type("application/json");
+			return (ok) ? status(200, true) : status(409, false);
 		}, gson::toJson);
 
 		Spark.get("/db/:store", "application/json", (req, res) -> {
@@ -83,7 +86,9 @@ public class HttpServer {
 
 		Spark.delete("/db/:store", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
-			return _db.deleteStore(storeId);
+			boolean ok = _db.deleteStore(storeId);
+			res.type("application/json");
+			return (ok) ? status(200, true) : status(404, false);
 		}, gson::toJson);
 
 		/**
@@ -93,30 +98,46 @@ public class HttpServer {
 		Spark.post("/db/:store", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
 			Map data = gson.fromJson(req.body(), Map.class);
-			return _db.createDocument(storeId, data);
+			Document document = _db.createDocument(storeId, data);
+			res.type("application/json");
+			return (document != null) ? document : status(404, false);
 		}, gson::toJson);
 
 		Spark.get("/db/:store/:doc", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
 			UUID documentId = UUID.fromString(req.params(":doc"));
-			return _db.returnDocument(storeId, documentId);
+			Document document = _db.returnDocument(storeId, documentId);
+			res.type("application/json");
+			return (document != null) ? document : status(404, false);
 		}, gson::toJson);
 
 		Spark.put("/db/:store/:doc", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
 			UUID documentId = UUID.fromString(req.params(":doc"));
 			Map data = gson.fromJson(req.body(), Map.class);
-			return _db.updateDocument(storeId, documentId, data);
+			boolean ok = _db.updateDocument(storeId, documentId, data);
+			res.type("application/json");
+			return (ok) ? status(200, true) : status(404, false);
 		}, gson::toJson);
 
 		Spark.delete("/:store/:doc", "application/json", (req, res) -> {
 			String storeId = req.params(":store");
 			UUID documentId = UUID.fromString(req.params(":doc"));
-			return _db.deleteDocument(storeId, documentId);
+			boolean ok = _db.deleteDocument(storeId, documentId);
+			res.type("application/json");
+			return (ok) ? status(200, true) : status(404, false);
 		}, gson::toJson);
 
 		System.err.printf("Listening on %d...\n", _port);
 
 	}
-
+	
+	private Map<String, Object> status(int code, boolean successful) {
+		return new HashMap<String,Object>(3){{
+			put("code", code);
+			put("message", HttpStatus.getMessage(code));
+			put("success", successful);
+		}};
+	}
+	
 }
