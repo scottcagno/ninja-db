@@ -129,7 +129,6 @@ public class HttpServer {
 		}, gson::toJson);
 
 		System.err.printf("Listening on %d...\n", _port);
-
 	}
 	
 	private Map<String, Object> status(int code, boolean successful) {
