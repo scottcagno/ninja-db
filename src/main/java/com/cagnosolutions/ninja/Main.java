@@ -17,7 +17,10 @@ public class Main {
 		server.run();
 
 		Runtime.getRuntime().addShutdownHook(new Thread() {
-			public void run() { db.save(); }
+			public void run() {
+				System.out.printf("... shutting down ninja-db\n");
+				db.save();
+			}
 		});
 	}
 }
