@@ -2,6 +2,8 @@ package com.cagnosolutions.ninja.db;
 
 import com.google.gson.Gson;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -20,11 +22,14 @@ public class Database {
 	private static DiskQueue diskQueue;
 	private static ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 	private static final Database INSTANCE = new Database();
+	private static final String SNAPSHOT_PATH = "/tmp/ninja.db";
 
 	private Database() {
 		engine = new Engine();
-		diskQueue = new DiskQueue("/tmp/ninja.db");
+		diskQueue = new DiskQueue(SNAPSHOT_PATH);
 		service.scheduleAtFixedRate(snapshot, 0, 15, TimeUnit.MINUTES);
+		if(Files.exists(new File(SNAPSHOT_PATH).toPath()))
+			engine = diskQueue.read();
 	}
 
 	Runnable snapshot = () -> {

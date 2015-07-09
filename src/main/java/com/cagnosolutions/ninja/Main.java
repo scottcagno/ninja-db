@@ -11,8 +11,13 @@ import com.cagnosolutions.ninja.http.HttpServer;
 public class Main {
 
 	public static void main(String[] args) {
+
 		Database db = Database.getInstance();
 		HttpServer server = new HttpServer(db, 8080);
 		server.run();
+
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() { db.save(); }
+		});
 	}
 }
