@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-public class Database {
+public final class Database {
 
 	private static Engine engine;
 	private static DiskQueue diskQueue;
@@ -32,9 +32,7 @@ public class Database {
 			engine = diskQueue.read();
 	}
 
-	Runnable snapshot = () -> {
-		INSTANCE.writeSnapshot();
-	};
+	Runnable snapshot = INSTANCE::writeSnapshot;
 
 	private void writeSnapshot() {
 		diskQueue.write(engine);
