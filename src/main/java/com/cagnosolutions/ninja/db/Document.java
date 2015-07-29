@@ -22,14 +22,14 @@ public class Document implements Serializable, Comparable<Document> {
 	private Map<String, Object> data;
 
 	public Document() {
-		UUID time = Type1UUID.getTimeUUID();
+		UUID time = UUID1.getTimeUUID();
 		this.id = time;
 		this.modified = time;
 		this.data = new ConcurrentHashMap<>(16, 0.80f, 4);
 	}
 
 	public Document(Map<String, Object> data) {
-		UUID time = Type1UUID.getTimeUUID();
+		UUID time = UUID1.getTimeUUID();
 		this.id = time;
 		this.modified = time;
 		this.data = data;
@@ -40,7 +40,7 @@ public class Document implements Serializable, Comparable<Document> {
 	}
 
 	public void updateModified() {
-		this.modified = Type1UUID.getTimeUUID();
+		this.modified = UUID1.getTimeUUID();
 	}
 
 	public Map<String, Object> getData() {

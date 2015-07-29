@@ -13,16 +13,16 @@ import java.util.*;
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-public class Type1UUID {
+public class UUID1 {
 
 	private static final long START_EPOCH = -12219292800000L;
 	private static final long clockSeqAndNode = makeClockSeqAndNode();
 	private static final long MIN_CLOCK_SEQ_AND_NODE = 0x8080808080808080L;
 	private static final long MAX_CLOCK_SEQ_AND_NODE = 0x7f7f7f7f7f7f7f7fL;
-	private static final Type1UUID instance = new Type1UUID();
+	private static final UUID1 instance = new UUID1();
 	private long lastNanos;
 
-	private Type1UUID() {
+	private UUID1() {
 		// make sure someone didn't whack the clockSeqAndNode by changing the order of instantiation.
 		if (clockSeqAndNode == 0) throw new RuntimeException("singleton instantiation is misplaced.");
 	}
